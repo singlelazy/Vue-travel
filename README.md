@@ -26,14 +26,23 @@ npm run build --report
 *  fastclick 解决300毫秒延迟问题
 ```
     npm install fastclick --save
+    import fastclick from 'fastclick'
 ```
 *  stylus和stylus-loader css预处理
 ```
     npm install stylus --sava
     npm install stylus-loader --save
+    <style lang="stylus"></style>
 ```
 *  vue-awesome-swiper 首页的轮播(使用2.6.7版本)
 ```
     npm install vue-awesome-swiper@2.6.7 --save
+    import VueAwesomeSwiper from 'vue-awesome-swiper'
+    import 'swiper/dist/css/swiper.css'
+```
+*  axios 第三方ajax插件，可以跨平台
+```
+    npm install axios --save
+    import axios from 'axios'
 ```
 
