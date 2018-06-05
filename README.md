@@ -45,9 +45,15 @@ npm run build --report
     npm install axios --save
     import axios from 'axios'
 ```
-* better-scroll 滚动区域包
+*  better-scroll 滚动区域包
 ```
     npm install better-scroll --save
     import BScroll from 'better-scroll'
+```
+*  vuex 管理公众数据
+```
+    npm install vuex --save
+    import Vuex from 'vuex'
+    Vue.use(Vuex)
 ```
 
