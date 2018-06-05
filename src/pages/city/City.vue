@@ -1,9 +1,16 @@
 <template>
   <div>
     <city-header></city-header>
-    <city-search></city-search>
-    <city-list :hotCities="hotCities" :cities="cities"></city-list>
-    <city-alphabet :cities="cities"></city-alphabet>
+    <city-search :cities="cities"></city-search>
+    <city-list 
+      :hotCities="hotCities" 
+      :cities="cities"
+      :letter="letter"
+    ></city-list>
+    <city-alphabet 
+      :cities="cities"
+      @change="handleLetterChange"
+    ></city-alphabet>
   </div>
 </template>
 
@@ -24,7 +31,8 @@
     data(){
       return{
         hotCities:[],
-        cities:{}
+        cities:{},
+        letter:''
       }
     },
     methods:{
@@ -40,6 +48,9 @@
            this.hotCities=data.hotCities
            this.cities=data.cities
          }
+       },
+       handleLetterChange(letter){
+          this.letter=letter
        }
     },
     mounted(){
