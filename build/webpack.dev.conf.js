@@ -11,7 +11,7 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 /*新加数据库连接*/
 const mysql=require('mysql')
-var db=mysql.createPool({host:"localhost",user:"root",password:"ys3872",database:"learn"})
+var db=mysql.createPool({host:"localhost",user:"root",password:"ys3872",database:"travel"})
 /*新家数据库连接 end()*/
 /*新加express*/
 const express=require('express')
@@ -55,8 +55,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     },
     /*新加路由规则*/
     before(server) {
-      server.get('/api/goods', (req, res) => {
-        db.query(`SELECT * FROM banner_table`,(err,data)=>{
+      server.get('/api/home', (req, res) => {
+        db.query(`SELECT * FROM home`,(err,data)=>{
           if(err){
             console.log(err);
             res.status(500).send('database').end()
