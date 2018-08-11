@@ -9,6 +9,16 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
+/*新加数据库连接*/
+const mysql=require('mysql')
+var db=mysql.createPool({host:"localhost",user:"root",password:"ys3872",database:"learn"})
+/*新家数据库连接 end()*/
+/*新加express*/
+const express=require('express')
+const server=express();
+var apiRoutes = express.Router()
+server.use('/api', apiRoutes)
+/*新增express end*/
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
@@ -42,7 +52,21 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
       poll: config.dev.poll,
+    },
+    /*新加路由规则*/
+    before(server) {
+      server.get('/api/goods', (req, res) => {
+        db.query(`SELECT * FROM banner_table`,(err,data)=>{
+          if(err){
+            console.log(err);
+            res.status(500).send('database').end()
+          }else{
+            res.send(data).end()
+          }
+        })
+      })
     }
+    /*新加路由规则结束*/
   },
   plugins: [
     new webpack.DefinePlugin({
