@@ -29,7 +29,7 @@
 				travelList:[]
 			}
 		},
-		mounted:function(){
+		mounted(){
 	        this.$ajax.get('http://localhost:8080/api/home').then((home_data)=>{
 	        	this.swiperList=home_data.data.filter((a)=>{
 	        		return a.part_id==0;

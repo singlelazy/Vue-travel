@@ -56,7 +56,34 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     /*新加路由规则*/
     before(server) {
       server.get('/api/home', (req, res) => {
-        db.query(`SELECT * FROM home`,(err,data)=>{
+        db.query(`SELECT * FROM home_table`,(err,data)=>{
+          if(err){
+            console.log(err);
+            res.status(500).send('database').end()
+          }else{
+            res.send(data).end()
+          }
+        })
+      })
+      server.get('/api/city', (req, res) => {
+        db.query(`SELECT * FROM city_table ORDER BY letter ASC`,(err,city_data)=>{
+          if(err){
+            console.log(err);
+            res.status(500).send('database').end()
+          }else{
+            db.query(`SELECT letter FROM city_table GROUP BY letter ORDER BY letter ASC`,(err,letter_data)=>{
+              if(err){
+                console.log(err);
+                res.status(500).send('database').end()
+              }else{
+                res.send({city_data,letter_data}).end()
+              }
+            })
+          }
+        })
+      })
+      server.get('/api/detail', (req, res) => {
+        db.query(`SELECT * FROM detail_table`,(err,data)=>{
           if(err){
             console.log(err);
             res.status(500).send('database').end()
