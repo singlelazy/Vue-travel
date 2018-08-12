@@ -71,12 +71,12 @@ const devWebpackConfig = merge(baseWebpackConfig, {
             console.log(err);
             res.status(500).send('database').end()
           }else{
-            db.query(`SELECT letter FROM city_table GROUP BY letter ORDER BY letter ASC`,(err,letter_data)=>{
+            db.query(`SELECT name FROM city_table  ORDER BY hot DESC LIMIT 6`,(err,hotcity_data)=>{
               if(err){
                 console.log(err);
                 res.status(500).send('database').end()
               }else{
-                res.send({city_data,letter_data}).end()
+                res.send({city_data,hotcity_data}).end()
               }
             })
           }
