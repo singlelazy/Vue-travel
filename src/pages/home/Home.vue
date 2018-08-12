@@ -41,7 +41,7 @@
 	        		return a.part_id==2;
 	        	});
 	        }).catch((res)=>{
-	        	console.log(home_data)
+	        	console.log(res)
 	        })
 		}
 	}

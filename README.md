@@ -1,21 +1,19 @@
-# test
+# 说明
+>环境要求：nodeJS,MySQL,网络连接
 
-> A Vue.js project
+1. cloen后先npm install 安装依赖 
+2. 将static/travel.sql引入数据库
+3. 执行命令npm run dev
+##依赖
+###CSS文件
+*  border.css 解决移动端一边框问题
+*  reset.css 重置样式
+*  iconfont 使用字体图标
+##node_module
+*  fastclick 解决300毫秒延迟问题
+*  stylus和stylus-loader css预处理
+*  vue-awesome-swiper 首页的轮播
+*  axios 第三方ajax插件，可以跨平台
+*  better-scroll 滚动区域包(城市列表页滑动)
+*  vuex 管理公众数据
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

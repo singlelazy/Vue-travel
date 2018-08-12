@@ -9,7 +9,7 @@
         class="item" 
         v-for="item in travelList" 
         :key="item.id"
-        :to="'/detail/'+item.id"
+        to="/detail"
       >
         <img class="item-img" :src="item.img_src" alt="">
         <div class="item-info border-bottom">
