@@ -1,7 +1,7 @@
 # 说明
 >环境要求：nodeJS,MySQL,网络连接
 
-1. cloen后先npm install 安装依赖 
+1. clone后先npm install 安装依赖 
 2. 将static/travel.sql引入数据库
 3. 执行命令npm run dev
 ##依赖
