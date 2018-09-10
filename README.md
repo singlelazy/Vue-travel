@@ -4,6 +4,7 @@
 1. clone后先npm install 安装依赖 
 2. 将static/travel.sql引入数据库
 3. 执行命令npm run dev
+
 ##依赖
 ###CSS文件
 *  border.css 解决移动端一边框问题
